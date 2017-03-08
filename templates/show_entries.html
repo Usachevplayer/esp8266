@@ -1,0 +1,18 @@
+{% block body %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+      <dl>
+        <dt>Tok:
+        <dd><input type=text size=30 name=tok>
+        <dt>Time:
+        <dd><input type=text size=30 name=time>
+        <dd><input type=submit value=Share>
+      </dl>
+    </form>
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry }}</h2>{{ entry.time|safe }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
